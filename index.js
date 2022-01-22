@@ -4,7 +4,8 @@ console.log("Welcome to Spotify");
 let songIndex = 0;
 let audioElement = new Audio('songs/1.mp3');
 let masterPlay = document.getElementById('masterPlay');
-let myProgressBar = document.getElementById('myProgressBar');
+// let progress = document.getElementById('progress');
+let progress = document.getElementById('myProgressBar');
 let gif = document.getElementById('gif');
 let masterSongName = document.getElementById('masterSongName');
 let songItems = Array.from(document.getElementsByClassName('songItem'));
@@ -42,6 +43,27 @@ masterPlay.addEventListener('click', ()=>{
         gif.style.opacity = 0;
     }
 })
+
+audioElement.addEventListener('timeupdate', updateProgress);
+
+function updateProgress(e) {
+    const { duration, currentTime } = e.srcElement;
+    const progressPercent = (currentTime / duration) * 100;
+    progress.style.width = `${progressPercent}%`;
+}
+
+progress.addEventListener('click', setProgress);
+
+function setProgress(e) {
+    const width = this.clientWidth;
+    const clickX = e.offsetX;
+    const duration = audioElement.duration;
+  
+    audioElement.currentTime = (clickX / width) * duration;
+}
+/***************
+audio.addEventListener('ended', nextSong);
+ 
 // Listen to Events
 audioElement.addEventListener('timeupdate', ()=>{ 
     // Update Seekbar
@@ -52,7 +74,7 @@ audioElement.addEventListener('timeupdate', ()=>{
 myProgressBar.addEventListener('change', ()=>{
     audioElement.currentTime = myProgressBar.value * audioElement.duration/100;
 })
-
+***/
 const makeAllPlays = ()=>{
     Array.from(document.getElementsByClassName('songItemPlay')).forEach((element)=>{
         element.classList.remove('fa-pause-circle');
@@ -89,7 +111,6 @@ document.getElementById('next').addEventListener('click', ()=>{
     audioElement.play();
     masterPlay.classList.remove('fa-play-circle');
     masterPlay.classList.add('fa-pause-circle');
-
 })
 
 document.getElementById('previous').addEventListener('click', ()=>{
