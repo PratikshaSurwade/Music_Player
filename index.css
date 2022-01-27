@@ -1,141 +1,151 @@
-@import url('https://fonts.googleapis.com/css2?family=Ubuntu&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Varela+Round&display=swap');
-body{
-    background-color: antiquewhite;
+@import url('https://fonts.googleapis.com/css?family=Lato&display=swap');
+
+* {
+  box-sizing: border-box;
 }
 
-*{
-    margin: 0;
-    padding: 0;
+body {
+  background-image: linear-gradient(
+    0deg,
+    #8A2BE2,
+    #9370DB
+  );
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Lato', sans-serif;
+  margin: 0;
 }
 
-nav{
-    font-family: 'Ubuntu', sans-serif;
-}
-nav ul{
-    display: flex;
-    align-items: center;
-    list-style-type: none;
-    height: 65px;
-    background-color: black;
-    color: white;
-}
-
-nav ul li{
-    padding: 0 12px;
+/* styling the outer music container */
+.music-container {
+  background-color: #efefef;
+  box-shadow: inset -1px -1px 5px rgba(33,33,33, 0.5), inset 1px 1px 5px rgba(33,33,33,0.5); 
+  display: flex;
+  padding: 20px 30px;
+  position: relative;
+  margin: 100px 0;
+  z-index: 10;
 }
 
-.brand img{
-    width: 44px;
-    padding: 0 8px;
+.img-container {
+  position: relative;
+  width: 110px;
 }
 
-.brand {
-    display: flex;
-    align-items: center;
-    font-weight: bolder;
-    font-size: 1.3rem;
+/* styling the image to look like a disc by placing a small circle in it*/
+.img-container::after {
+  content: '';
+  background-color: #fff;
+  border-radius: 50%;
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  width: 20px;
+  height: 20px;
+  transform: translate(-50%, 50%);
 }
 
-.container{
-    min-height: 72vh;
-    background-color: black;
-    color: white;
-   font-family: 'Varela Round', sans-serif;
-   display: flex;
-   margin: 23px auto;
-   width: 70%;
-   border-radius: 12px;
-   padding: 34px;
-   background-image: url('bg.jpg');
+/* using animation to make the image rotate continiously when music is playing */
+.img-container img {
+  border-radius: 50%;
+  object-fit: cover;
+  height: 110px;
+  width: inherit;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  animation: rotate 3s linear infinite;
+
+  animation-play-state: paused;
 }
 
-.bottom{
-    position: sticky;
-    bottom: 0;
-    height: 130px;
-    background-color: black;
-    color: white;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column; 
+/* making sure the image rotates only when the music is playing */
+.music-container.play .img-container img {
+  animation-play-state: running;
 }
 
-.icons{
-    margin-top: 14px; 
+/* creating the animation keyframe and setting the image to rotate 360 degrees continiously */
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
 }
 
-.icons i{
-    cursor: pointer;
+
+.navigation {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1;
 }
 
-#myProgressBar{
-    width: 80vw; 
-    cursor: pointer;
+/* styling the navigation buttons */
+.action-btn {
+  border: 0;
+  border-radius: 20px;
+  font-size: 20px;
+  cursor: pointer;
+  padding: 10px;
+  margin: 0 20px;
 }
 
-.songItemContainer{
-    margin-top: 74px;
+.action-btn.action-btn-big {
+  font-size: 30px;
+  outline: none;
 }
 
-.songItem{
-    height: 50px;
-    display: flex;
-    background-color: white;
-    color: black;
-    margin: 12px 0;
-    justify-content: space-between;
-    align-items: center;
-    border-radius: 34px;
+.action-btn:focus {
+  outline: 0;
 }
 
-.songItem img{
-    width: 43px;
-    margin: 0 23px;
-    border-radius: 34px;
+/* styling the music-info div by placing it under the music container */
+.music-info {
+  background-color: rgba(255, 255, 255, 0.5);
+  border-radius: 15px 15px 0 0;
+  position: absolute;
+  top: 0;
+  left: 20px;
+  width: calc(100% - 40px);
+  padding: 10px 10px 10px 150px;
+  opacity: 0;
+  transform: translateY(0%);
+  transition: transform 0.3s ease-in, opacity 0.3s ease-in;
+  z-index: 0;
 }
 
-.timestamp{
-    margin: 0 23px;
+/* making the music info pop up when the music playing using the transform property*/
+.music-container.play .music-info {
+  opacity: 1;
+  transform: translateY(-100%);
 }
 
-.timestamp i{
-    cursor: pointer;
+.music-info h4 {
+  margin: 0;
 }
 
-.songInfo{
-    position: absolute;
-    left: 10vw;
-    font-family: 'Varela Round', sans-serif;
-}
-
-.songInfo img{
-    opacity: 0;
-    transition: opacity 0.4s ease-in;
-}
 /* styling the song progress container */
 .progress-container {
-    background: #fff;
-    border-radius: 5px;
-    cursor: pointer;
-    margin: 10px 0;
-    height: 4px;
-    width: 80vw;
-  }
-  
-  /* styling the actual progress bar and making it flow along with the song*/
-  .progress {
-    background-color: #fe8daa;
-    color: #efefef;
-    border-radius: 5px;
-    height: 100%;
-    width: 0%;
-    transition: width 0.1s linear;
-  }
+  background: #fff;
+  border-radius: 5px;
+  cursor: pointer;
+  margin: 10px 0;
+  height: 4px;
+  width: 100%;
+}
 
-@media only screen and (max-width: 1100px) {
-    body {
-      background-color: red;
-    }
-  }
+/* styling the actual progress bar and making it flow along with the song*/
+.progress {
+  background-color: #fe8daa;
+  color: #efefef;
+  border-radius: 5px;
+  height: 100%;
+  width: 0%;
+  transition: width 0.1s linear;
+}
