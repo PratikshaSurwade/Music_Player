@@ -10,7 +10,7 @@ const title = document.getElementById('title');
 const cover = document.getElementById('cover');
 const currTime = document.querySelector('#currTime');
 const durTime = document.querySelector('#durTime');
-
+//song cover 
 const songs = [1,2,3,4,5,6,7,8,9,10];
 
 let songIndex = 1;
