@@ -18,7 +18,19 @@ body {
   font-family: 'Lato', sans-serif;
   margin: 0;
 }
+.songItem{
+  display: flex;
+  margin: 10px;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
 
+.songItem > img {
+
+  width: 30px;
+  height: 30px;
+}
 /* styling the outer music container */
 .music-container {
   background-color: #efefef;

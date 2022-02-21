@@ -18,12 +18,25 @@ let songIndex = 1;
 function loadSong(song) {
   // let id = song.id;
   console.log(song);
+  let currentplay;
+  document.getElementById(song).classList.remove('fa-play-circle');
+  document.getElementById(song).classList.add('fa-pause-circle');
   title.innerText = song;
   audio.src = `music/${song}.mp3`;
   cover.src = `images/${song}.jpg`;
     
   playSong();
 }
+
+// function loadSong(song) {
+//   // let id = song.id;
+//   console.log(song);
+//   title.innerText = song;
+//   audio.src = `music/${song}.mp3`;
+//   cover.src = `images/${song}.jpg`;
+    
+//   playSong();
+// }
 
 
 playBtn.addEventListener('click', () => {
