@@ -20,7 +20,7 @@ body {
 }
 .songItem{
   display: flex;
-  margin: 10px;
+  margin: 5px;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
@@ -31,6 +31,8 @@ body {
   width: 30px;
   height: 30px;
 }
+
+
 /* styling the outer music container */
 .music-container {
   background-color: #efefef;
