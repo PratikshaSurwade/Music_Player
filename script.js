@@ -95,12 +95,12 @@ function pauseSong() {
     audio.pause();
 }
 
-prevBtn.addEventListener('click', prevSong);
-nextBtn.addEventListener('click', nextSong);
+// prevBtn.addEventListener('click', prevSong);
+// nextBtn.addEventListener('click', nextSong);
 
 function prevSong() {
     // console.log(song);
-    // // console.log(song);
+    console.log(song);
     // song--;
     // if (song < 0) {
     //   song = songs.length - 1;
@@ -121,6 +121,7 @@ function prevSong() {
 }
 
 function nextSong() {
+  console.log(song);
     songIndex++;
   
     if (songIndex > songs.length - 1) {

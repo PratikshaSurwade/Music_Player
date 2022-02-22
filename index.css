@@ -31,6 +31,9 @@ body {
   width: 30px;
   height: 30px;
 }
+.songlistplay{
+  cursor: pointer;
+}
 
 
 /* styling the outer music container */
