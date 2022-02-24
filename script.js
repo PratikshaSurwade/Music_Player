@@ -47,37 +47,46 @@ function toggle() {
   document.querySelectorAll(".far")[8].classList.replace('fa-pause-circle','fa-play-circle');
  
 }
-function playSong(song) {
-  // let id = song.id;
-  console.log(song);
-  songIndex = song;
-  // title.innerText = song;
-  // title.innerText = document.getElementById(song).parentNode.parentElement.childNodes[3].innerText;;
-  let title= document.getElementById(song).parentNode.parentElement.childNodes[3].innerText;;
-  console.log(title);
-  audio.src = `music/${song}.mp3`;
-  cover.src = `images/${song}.jpg`;
-  document.getElementById(song).classList.remove('fa-play-circle');
-  document.getElementById(song).classList.add('fa-pause-circle');
-  // playSong();
-}
+// function playSong(song) {
+//   // let id = song.id;
+//   console.log(song);
+//   songIndex = song;
+  
+//   // title.innerText = song;
+//   // title.innerText = document.getElementById(song).parentNode.parentElement.childNodes[3].innerText;;
+//   let title= document.getElementById(song).parentNode.parentElement.childNodes[3].innerText;;
+//   console.log(title);
+//   audio.src = `music/${song}.mp3`;
+//   cover.src = `images/${song}.jpg`;
+//   document.getElementById(song).classList.remove('fa-play-circle');
+//   document.getElementById(song).classList.add('fa-pause-circle');
+//   // playSong();
+// }
 
 
 playBtn.addEventListener('click', () => {
     const isPlaying = musicContainer.classList.contains('play');
-    // console.log(song);
+    console.log(song);
     console.log(songIndex);
+    
     // loadSong1(song);
     if (isPlaying) {
       toggle();
       pauseSong();
     } else {
-      
-      playSong();
+      loadSong(songIndex);
+      playSong1();
     }
     
 });
+function playSong1() {
+  musicContainer.classList.add('play');
+  playBtn.querySelector('i.fas').classList.remove('fa-play');
+  playBtn.querySelector('i.fas').classList.add('fa-pause');
 
+  
+  audio.play();
+}
 function playSong() {
     musicContainer.classList.add('play');
     playBtn.querySelector('i.fas').classList.remove('fa-play');
