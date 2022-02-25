@@ -15,23 +15,22 @@ const durTime = document.querySelector('#durTime');
 //song cover 
 
 let currentChange;
-let flag = true;
+let flag = false;
 
 const songs = [1,2,3,4,5,6,7,8,9];
 let songIndex = 1;
 let song=1;
 
 function loadSong(song) {
-  let songIndex = song;
-  // let id = song.id;
-  // console.log(songs);
   toggle();
-  title.innerText = document.getElementById(song).parentNode.parentElement.childNodes[3].innerText;;
-  audio.src = `music/${song}.mp3`;
-  cover.src = `images/${song}.jpg`;
-  document.getElementById(song).classList.toggle('fa-play-circle');
-  document.getElementById(song).classList.toggle('fa-pause-circle');
-    
+  console.log(song);
+  // song=songIndex;
+  console.log(songIndex);
+    title.innerText = document.getElementById(song).parentNode.parentElement.childNodes[3].innerText;;
+    audio.src = `music/${song}.mp3`;
+    cover.src = `images/${song}.jpg`;
+    document.getElementById(song).classList.toggle('fa-play-circle');
+    document.getElementById(song).classList.toggle('fa-pause-circle'); 
   playSong();
 }
 
@@ -45,58 +44,37 @@ function toggle() {
   document.querySelectorAll(".far")[6].classList.replace('fa-pause-circle','fa-play-circle');
   document.querySelectorAll(".far")[7].classList.replace('fa-pause-circle','fa-play-circle');
   document.querySelectorAll(".far")[8].classList.replace('fa-pause-circle','fa-play-circle');
- 
+
 }
-// function playSong(song) {
-//   // let id = song.id;
-//   console.log(song);
-//   songIndex = song;
-  
-//   // title.innerText = song;
-//   // title.innerText = document.getElementById(song).parentNode.parentElement.childNodes[3].innerText;;
-//   let title= document.getElementById(song).parentNode.parentElement.childNodes[3].innerText;;
-//   console.log(title);
-//   audio.src = `music/${song}.mp3`;
-//   cover.src = `images/${song}.jpg`;
-//   document.getElementById(song).classList.remove('fa-play-circle');
-//   document.getElementById(song).classList.add('fa-pause-circle');
-//   // playSong();
-// }
-
-
 playBtn.addEventListener('click', () => {
     const isPlaying = musicContainer.classList.contains('play');
-    console.log(song);
-    console.log(songIndex);
-    
-    // loadSong1(song);
+    // console.log(song);
     if (isPlaying) {
+      flag = false;
       toggle();
-      pauseSong();
+      pauseSong();    
     } else {
-      loadSong(songIndex);
-      playSong1();
-    }
-    
+      flag = true;
+      console.log(songIndex);
+      loadSong(songs[songIndex-1]);
+    }  
 });
-function playSong1() {
-  musicContainer.classList.add('play');
-  playBtn.querySelector('i.fas').classList.remove('fa-play');
-  playBtn.querySelector('i.fas').classList.add('fa-pause');
+console.log(flag);
 
-  
-  audio.play();
-}
 function playSong() {
+  // console.log(flag);
+  // console.log(songs[songIndex]);
+    document.getElementById('songInfo').innerHTML=songIndex;
+
     musicContainer.classList.add('play');
     playBtn.querySelector('i.fas').classList.remove('fa-play');
     playBtn.querySelector('i.fas').classList.add('fa-pause');
 
-  
     audio.play();
 }
 
 function pauseSong() {
+  // console.log(flag);
     musicContainer.classList.remove('play');
     playBtn.querySelector('i.fas').classList.add('fa-play');
     playBtn.querySelector('i.fas').classList.remove('fa-pause');
@@ -104,34 +82,28 @@ function pauseSong() {
     audio.pause();
 }
 
-// prevBtn.addEventListener('click', prevSong);
-// nextBtn.addEventListener('click', nextSong);
+prevBtn.addEventListener('click', prevSong);
+nextBtn.addEventListener('click', nextSong);
 
 function prevSong() {
     // console.log(song);
-    console.log(song);
-    // song--;
-    // if (song < 0) {
-    //   song = songs.length - 1;
-    // }
-    // // console.log(songs.values);
-    // // let id = setAttribute("id",)
-    // // toggle(song);
-    // loadSong(songs[song]);
-    songIndex--;
 
-    if (songIndex < 0) {
+    songIndex = songIndex - 1;
+    
+
+    if (songIndex <= 0) {
       songIndex = songs.length - 1;
     }
-    // console.log(songs);
     // let id = setAttribute("id",)
-    loadSong(songs[songIndex]);
+    // songIndex=song;
+    console.log(songIndex);
+    loadSong(songs[songIndex-1]);
  
 }
 
 function nextSong() {
-  console.log(song);
-    songIndex++;
+  // console.log(song);
+    songIndex = songIndex + 1;
   
     if (songIndex > songs.length - 1) {
       songIndex = 0;
