@@ -112,7 +112,8 @@ function prevSong() {
 }
 
 function nextSong() {
-  // console.log(song);
+  console.log(document.getElementById('songInfo').innerText);
+    // songIndex = document.getElementById('songInfo').innerHTML;
     songIndex = songIndex + 1;
   
     if (songIndex > songs.length - 1) {
