@@ -33,7 +33,19 @@ function loadSong(song) {
     document.getElementById(song).classList.toggle('fa-pause-circle'); 
   playSong();
 }
+function toggleSong(song){
+  console.log(song);
+  const isPlaying = musicContainer.classList.contains('play');
+  if (!isPlaying) {
+    loadSong(song);
+  }
+  else{
+    toggle();
+    pauseSong();
+  }
 
+
+}
 function toggle() {
   document.querySelectorAll(".far")[0].classList.replace('fa-pause-circle','fa-play-circle');
   document.querySelectorAll(".far")[1].classList.replace('fa-pause-circle','fa-play-circle');
@@ -91,13 +103,11 @@ function prevSong() {
     songIndex = songIndex - 1;
     
 
-    if (songIndex <= 0) {
+    if (songIndex < 0) {
       songIndex = songs.length - 1;
     }
-    // let id = setAttribute("id",)
-    // songIndex=song;
     console.log(songIndex);
-    loadSong(songs[songIndex-1]);
+    loadSong(songs[songIndex]);
  
 }
 
