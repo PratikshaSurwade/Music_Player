@@ -21,23 +21,28 @@ const songs = [1,2,3,4,5,6,7,8,9];
 let songIndex = 1;
 let song=1;
 
-function loadSong(song) {
+function loadSong(songIndex) {
   toggle();
   console.log(song);
+  // if (song){
+  //   songIndex=song;
+  // }
   // song=songIndex;
   console.log(songIndex);
-    title.innerText = document.getElementById(song).parentNode.parentElement.childNodes[3].innerText;;
-    audio.src = `music/${song}.mp3`;
-    cover.src = `images/${song}.jpg`;
-    document.getElementById(song).classList.toggle('fa-play-circle');
-    document.getElementById(song).classList.toggle('fa-pause-circle'); 
-  playSong();
+    title.innerText = document.getElementById(songIndex).parentNode.parentElement.childNodes[3].innerText;;
+    audio.src = `music/${songIndex}.mp3`;
+    cover.src = `images/${songIndex}.jpg`;
+    document.getElementById(songIndex).classList.toggle('fa-play-circle');
+    document.getElementById(songIndex).classList.toggle('fa-pause-circle'); 
+    playSong();
 }
-function toggleSong(song){
-  console.log(song);
+function toggleSong(songIndex){
+  console.log(songIndex);
   const isPlaying = musicContainer.classList.contains('play');
   if (!isPlaying) {
-    loadSong(song);
+
+    loadSong(songIndex);
+    
   }
   else{
     toggle();
@@ -76,12 +81,12 @@ console.log(flag);
 function playSong() {
   // console.log(flag);
   // console.log(songs[songIndex]);
-    document.getElementById('songInfo').innerHTML=songIndex;
+    
 
     musicContainer.classList.add('play');
     playBtn.querySelector('i.fas').classList.remove('fa-play');
     playBtn.querySelector('i.fas').classList.add('fa-pause');
-
+    document.getElementById('songInfo').innerHTML=songIndex;
     audio.play();
 }
 
