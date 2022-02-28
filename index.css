@@ -50,7 +50,7 @@
   flex: 80%;
   background-color:black;
   color: white;
-  height: 100vh;
+  border: 3px dashed greenyellow;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -58,22 +58,48 @@
   font-family: 'Lato', sans-serif;
   margin: 0;
 }
+.songItemContainer{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: center;
+}
+
 .songItem{
+  width: 10rem;
+  height: 15rem;
   display: flex;
   margin: 5px;
-  flex-direction: row;
-  justify-content: space-between;
+  border: 2px white dashed;
+  
+  border-radius: 0.4rem;
+  flex-direction: column;
   align-items: center;
 }
 
 .songItem > img {
 
-  width: 30px;
-  height: 30px;
+  width: 8rem;
+  height: 8rem;
+}
+.songName{
+  padding: 0.8rem 0.4rem;
+  font-size: 1.2rem;
+}
+.subCard{
+  display: flex;
+  flex-direction: column;
 }
 .songlistplay{
-  cursor: pointer;
+  /* visibility: hidden;   */
+  visibility: visible;
 }
+/* .songlistplay:hover{
+  visibility: visible;
+  cursor: pointer;
+  
+} */
+
 
 
 /* styling the outer music container */
