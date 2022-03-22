@@ -2,14 +2,15 @@
 
 .mainContainer{
   display: flex;
-
 }
+
 .sideBar{
   flex: 20rem;
   background-color: black;
   border: 3px red dashed;
   
 }
+
 .tiTleLogo{
   color: white;
   margin-top: 1.5rem;
@@ -21,10 +22,12 @@
   font-size: 1.5rem;
   font-family: 'Poppins', sans-serif;
 }
+
 .tiTleLogo>img{
   height: 3.5rem;
   width: 3.5rem;
 }
+
 .icons{
   color: #d3d2d2;
   margin-top: 2rem;
@@ -46,6 +49,7 @@
   display: inline-flex;
   size: 3rem;
 }
+
 .songContainer {
   flex: 80%;
   background-color:black;
@@ -58,6 +62,7 @@
   font-family: 'Lato', sans-serif;
   margin: 0;
 }
+
 .songItemContainer{
   display: flex;
   flex-wrap: wrap;
@@ -82,14 +87,17 @@
   width: 8rem;
   height: 8rem;
 }
+
 .songName{
   padding: 0.8rem 0.4rem;
   font-size: 1.2rem;
 }
+
 .subCard{
   display: flex;
   flex-direction: column;
 }
+
 .songlistplay{
   /* visibility: hidden;   */
   visibility: visible;
@@ -207,6 +215,7 @@
 .music-container.play .music-info {
   opacity: 1;
   transform: translateY(-100%);
+  width: 50%;
 }
 
 .music-info h4 {
