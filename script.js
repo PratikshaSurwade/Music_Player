@@ -29,7 +29,8 @@ function loadSong(songIndex) {
   // }
   // song=songIndex;
   console.log(songIndex);
-    title.innerText = document.getElementById(songIndex).parentNode.parentElement.childNodes;
+    title.innerText = document.getElementById(songIndex).parentNode.parentNode.childNodes[1].outerText;
+    console.log(document.getElementById(songIndex).parentNode.parentNode.childNodes[1].outerText);
     audio.src = `music/${songIndex}.mp3`;
     cover.src = `images/${songIndex}.jpg`;
     document.getElementById(songIndex).classList.toggle('fa-play-circle');
