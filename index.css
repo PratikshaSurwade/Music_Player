@@ -7,7 +7,7 @@
 .sideBar{
   flex: 20rem;
   background-color: black;
-  border: 3px red dashed;
+  /* border: 3px red dashed; */
   
 }
 
@@ -54,7 +54,7 @@
   flex: 80%;
   background-color:black;
   color: white;
-  border: 3px dashed greenyellow;
+  /* border: 3px dashed greenyellow; */
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -75,7 +75,7 @@
   height: 15rem;
   display: flex;
   margin: 5px;
-  border: 2px white dashed;
+  border: 2px white ridge;
   
   border-radius: 0.4rem;
   flex-direction: column;
