@@ -47,7 +47,23 @@
 #sidebarIcons{
   padding: 1rem ;
   display: inline-flex;
+  
   size: 3rem;
+}
+#sidebarIcons1{
+  padding: 1rem ;
+  /* display: inline-flex; */
+  background-size: 1.5rem;
+  background-position-x: center;
+
+  background-position-y: center;
+  /* width: 0.3rem; */
+  height:0.1rem;
+  background-repeat: no-repeat;
+  /* background-position: center; */
+  /* background-image: linear-gradient(45deg, rgb(68, 68, 248) 5%, rgb(255, 0, 255) 75%  ); */
+  padding-bottom:1rem ;
+  font-size: rem;
 }
 
 .songContainer {
@@ -76,7 +92,6 @@
   display: flex;
   margin: 5px;
   border: 2px white ridge;
-  
   border-radius: 0.4rem;
   flex-direction: column;
   align-items: center;
@@ -102,13 +117,6 @@
   /* visibility: hidden;   */
   visibility: visible;
 }
-/* .songlistplay:hover{
-  visibility: visible;
-  cursor: pointer;
-  
-} */
-
-
 
 /* styling the outer music container */
 .music-container {
