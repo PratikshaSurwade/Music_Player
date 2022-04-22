@@ -8,7 +8,6 @@
   flex: 20rem;
   background-color: black;
   /* border: 3px red dashed; */
-  
 }
 
 .tiTleLogo{
@@ -47,9 +46,9 @@
 #sidebarIcons{
   padding: 1rem ;
   display: inline-flex;
-  
   size: 3rem;
 }
+
 #sidebarIcons1{
   padding: 1rem ;
   /* display: inline-flex; */
