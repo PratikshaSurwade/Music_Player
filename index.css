@@ -7,7 +7,6 @@
 .sideBar{
   flex: 20rem;
   background-color: black;
-  /* border: 3px red dashed; */
 }
 
 .tiTleLogo{
@@ -53,8 +52,7 @@
   padding: 1rem ;
   /* display: inline-flex; */
   background-size: 1.5rem;
-  background-position-x: center;
-
+  background-position-x: center;               
   background-position-y: center;
   /* width: 0.3rem; */
   height:0.1rem;
@@ -69,7 +67,6 @@
   flex: 80%;
   background-color:black;
   color: white;
-  /* border: 3px dashed greenyellow; */
   display: flex;
   flex-direction: column;
   align-items: center;
