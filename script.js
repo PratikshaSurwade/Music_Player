@@ -22,7 +22,7 @@ let songIndex = 1;
 let song=1;
 
 function loadSong(songIndex) {
-  toggle();
+  // toggle();
   console.log(song);
   // if (song){
   //   songIndex=song;
@@ -39,6 +39,7 @@ function loadSong(songIndex) {
 function toggleSong(songIndex){
   console.log(songIndex);
   const isPlaying = musicContainer.classList.contains('play');
+  console.log(isPlaying);
   if (!isPlaying) {
 
     loadSong(songIndex);
@@ -48,8 +49,6 @@ function toggleSong(songIndex){
     toggle();
     pauseSong();
   }
-
-
 }
 function toggle() {
   document.querySelectorAll(".far")[0].classList.replace('fa-pause-circle','fa-play-circle');
